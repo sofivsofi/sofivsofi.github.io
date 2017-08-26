@@ -7,14 +7,48 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Poppins:400,700'>
+  <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/revealer.css" />
 
       <link rel="stylesheet" href="css/style.css">
+      <link rel="icon" href="favicon.ico" type="image/x-icon" />
       <!--<link rel="stylesheet" href="css/nyan.css">-->
+      <script>document.documentElement.className = 'js';</script>
 
   
 </head>
 
 <body>
+<div class="logo">
+  <a href="index.html" style="color:#fff;">___/|<br/>
+\o.O|
+(___)<br/>
+  &nbsp;&nbsp;U</a></div>
+<svg class="hidden">
+      <symbol id="icon-arrow" viewBox="0 0 24 24">
+        <title>arrow</title>
+        <polygon points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 "/>
+      </symbol>
+      <symbol id="icon-menu" viewBox="0 0 17.6 9.9">
+        <title>menu</title>
+        <path d="M17.6,1H0V0h17.6V1z M17.6,4.3h-12v1h12V4.3z M17.6,8.9h-6.9v1h6.9V8.9z"/>
+      </symbol>
+      <symbol id="icon-cross" viewBox="0 0 10.2 10.2">
+        <title>cross</title>
+        <path d="M5.8,5.1l4.4,4.4l-0.7,0.7L5.1,5.8l-4.4,4.4L0,9.5l4.4-4.4L0,0.7L0.7,0l4.4,4.4L9.5,0l0.7,0.7L5.8,5.1z"/>
+      </symbol>
+    </svg>
+<button class="btn btn--menu"><svg class="icon icon--menu"><use xlink:href="#icon-menu"></use></svg></button>
+<nav class="menu">
+        <button class="btn btn--close"><svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg></button>
+        <ul class="menu__inner">
+          <li class="menu__item"><a class="menu__link" href="#">about</a></li>
+          <li class="menu__item"><a class="menu__link" href="#">skills</a></li>
+          <li class="menu__item"><a class="menu__link" href="#">projects</a></li>
+          <li class="menu__item"><a class="menu__link" href="#">contact</a></li>
+        </ul>
+      </nav>
  <div class="lalakis">
  <div class="dontHate">
  <!--<div class="sparks-combo">
@@ -28,6 +62,43 @@
   </div>
  </div> 
  </div>
+<script src="js/anime.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+    (function() {
+      var navEl = document.querySelector('nav.menu'),
+        revealer = new RevealFx(navEl),
+        closeCtrl = navEl.querySelector('.btn--close');
 
+      document.querySelector('.btn--menu').addEventListener('click', function() {
+        revealer.reveal({
+          bgcolor: '#d500de',
+          duration: 400, 
+          easing: 'easeInOutCubic',
+          onCover: function(contentEl, revealerEl) {
+            navEl.classList.add('menu--open');
+            contentEl.style.opacity = 1;
+          },
+          onComplete: function() {
+            closeCtrl.addEventListener('click', closeMenu);
+          }
+        });
+      });
+
+      function closeMenu() {
+        closeCtrl.removeEventListener('click', closeMenu);
+        navEl.classList.remove('menu--open');
+        revealer.reveal({
+          bgcolor: '#d500de',
+          duration: 400, 
+          easing: 'easeInOutCubic',
+          onCover: function(contentEl, revealerEl) {
+            navEl.classList.remove('menu--open');
+            contentEl.style.opacity = 0;
+          }
+        });
+      }
+    })();
+    </script>
 </body>
 </html>
