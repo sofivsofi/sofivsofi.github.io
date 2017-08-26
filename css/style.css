@@ -32,8 +32,8 @@ background-image: linear-gradient(to right top, #2B0059 45%, #2B0099 73%);
   background-image: url("../images/bg.jpg");
       background-size: 105% 100%;
     background-position: -97px 0px;
- -webkit-box-shadow: -5px 20px 30px 0 rgba(43,0,53,1);
-box-shadow: -5px 20px 30px 0 rgba(43,0,53,1);
+-webkit-box-shadow: -20px 20px 30px 0 rgba(43,0,31,1);
+box-shadow: -20px 20px 30px 0 rgba(43,0,31,1);
   width: 95%;
   margin-left: 5%;
   margin-top:25px;
@@ -60,7 +60,7 @@ height: 100%;
 }
 
 .glitch {
-  font-size: 130px;
+  font-size: 122px;
   line-height: 1;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
